@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-
-const todoDataUrl = "http://localhost:3100/todos";
 
 const TodoTitle = ({ title, as }) => {
   if (as === "h1") {
