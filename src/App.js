@@ -11,7 +11,11 @@ const TodoTitle = ({ title, as }) => {
   }
 };
 
-const TodoList = ({ todoList, toggleTodoListItemStatus }) => {
+const TodoList = ({
+  todoList,
+  toggleTodoListItemStatus,
+  deleteTodoListItem,
+}) => {
   return (
     <ul>
       {todoList.map((todo) => (
@@ -19,15 +23,17 @@ const TodoList = ({ todoList, toggleTodoListItemStatus }) => {
           todo={todo}
           key={todo.id}
           toggleTodoListItemStatus={toggleTodoListItemStatus}
+          deleteTodoListItem={deleteTodoListItem}
         />
       ))}
     </ul>
   );
 };
 
-const TodoItem = ({ todo, toggleTodoListItemStatus }) => {
+const TodoItem = ({ todo, toggleTodoListItemStatus, deleteTodoListItem }) => {
   const handleToggleTodoListItemStatus = () =>
     toggleTodoListItemStatus(todo.id, todo.done);
+  const handleDeleteTodoListItem = () => deleteTodoListItem(todo.id);
 
   return (
     <li>
@@ -35,6 +41,7 @@ const TodoItem = ({ todo, toggleTodoListItemStatus }) => {
       <button onClick={handleToggleTodoListItemStatus}>
         {todo.done ? "完了リストへ" : "未完了リストへ"}
       </button>
+      <button onClick={handleDeleteTodoListItem}>削除</button>
     </li>
   );
 };
@@ -49,7 +56,12 @@ const TodoAdd = ({ inputEl, handleAddTodoListItem }) => {
 };
 
 function App() {
-  const { todoList, addTodoListItem, toggleTodoListItemStatus } = useTodo();
+  const {
+    todoList,
+    addTodoListItem,
+    toggleTodoListItemStatus,
+    deleteTodoListItem,
+  } = useTodo();
 
   const inputEl = useRef(null);
 
@@ -75,12 +87,14 @@ function App() {
       <TodoList
         todoList={inCompletedList}
         toggleTodoListItemStatus={toggleTodoListItemStatus}
+        deleteTodoListItem={deleteTodoListItem}
       />
 
       <TodoTitle title="完了TODOリスト" as="h2" />
       <TodoList
         todoList={completedList}
         toggleTodoListItemStatus={toggleTodoListItemStatus}
+        deleteTodoListItem={deleteTodoListItem}
       />
     </>
   );
