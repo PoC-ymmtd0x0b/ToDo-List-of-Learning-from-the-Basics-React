@@ -1,7 +1,32 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 
-const todoDataUrl = "http://localhost:3100/todos";
+const TodoTitle = ({ title, as }) => {
+  if (as === "h1") {
+    return <h1>{title}</h1>;
+  } else if (as === "h2") {
+    return <h2>{title}</h2>;
+  } else {
+    return <p>{title}</p>;
+  }
+};
+
+const TodoList = ({ todoList }) => {
+  return (
+    <ul>
+      {todoList.map((todo) => (
+        <TodoItem todo={todo} key={todo.id} />
+      ))}
+    </ul>
+  );
+};
+
+const TodoItem = ({ todo }) => {
+  return (
+    <li>
+      {todo.content}（{todo.done ? "完了" : "未完了"}）
+    </li>
+  );
+};
 
 const TodoTitle = ({ title, as }) => {
   if (as === "h1") {
