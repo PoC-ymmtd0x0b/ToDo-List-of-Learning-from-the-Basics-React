@@ -29,34 +29,6 @@ const TodoItem = ({ todo }) => {
   );
 };
 
-const TodoTitle = ({ title, as }) => {
-  if (as === "h1") {
-    return <h1>{title}</h1>;
-  } else if (as === "h2") {
-    return <h2>{title}</h2>;
-  } else {
-    return <p>{title}</p>;
-  }
-};
-
-const TodoList = ({ todoList }) => {
-  return (
-    <ul>
-      {todoList.map((todo) => (
-        <TodoItem todo={todo} key={todo.id} />
-      ))}
-    </ul>
-  );
-};
-
-const TodoItem = ({ todo }) => {
-  return (
-    <li>
-      {todo.content}（{todo.done ? "完了" : "未完了"}）
-    </li>
-  );
-};
-
 function App() {
   const { todoList, addTodoListItem } = useTodo();
 
