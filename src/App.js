@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useTodo } from "./hooks/useTodo";
 
 const TodoTitle = ({ title, as }) => {
   if (as === "h1") {
@@ -57,29 +58,10 @@ const TodoItem = ({ todo }) => {
 };
 
 function App() {
-  const [todoList, setTodoList] = useState([]);
+  const { todoList } = useTodo();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(todoDataUrl).catch((e) => {
-        return { data: [] };
-      });
-      setTodoList(response.data);
-    };
-    fetchData();
-  }, []);
-
-  console.log("TODOリスト：", todoList);
-
-  const inCompletedList = todoList.filter((todo) => {
-    return !todo.done;
-  });
-  console.log("未完了TODOリスト：", inCompletedList);
-
-  const completedList = todoList.filter((todo) => {
-    return todo.done;
-  });
-  console.log("完了TODOリスト：", completedList);
+  const inCompletedList = todoList.filter((todo) => !todo.done);
+  const completedList = todoList.filter((todo) => todo.done);
 
   return (
     <>
