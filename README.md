@@ -6,10 +6,12 @@
 ## 完成図
 
 <a href="https://github.com/user-attachments/assets/2188f238-32cb-47e5-999a-88853d14b3eb">
-  <img src="https://github.com/user-attachments/assets/2188f238-32cb-47e5-999a-88853d14b3eb" width="70%" height="100%" />
+  <img src="https://github.com/user-attachments/assets/2188f238-32cb-47e5-999a-88853d14b3eb" width="90%" height="100%" />
 </a>
 
 
+<br />
+<br />
 <br />
 以下、プロジェクト作成時に自動生成された文章
 <br />
