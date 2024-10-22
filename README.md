@@ -2,10 +2,17 @@
 
 書籍「基礎から学ぶ React / React Hooks 実践入門」で解説されている「Chapter6 TODOアプリ作成にチャレンジしょう」の写経
 
+
+## 完成図
+
+<a href="https://github.com/user-attachments/assets/2188f238-32cb-47e5-999a-88853d14b3eb">
+  <img src="https://github.com/user-attachments/assets/2188f238-32cb-47e5-999a-88853d14b3eb" width="70%" height="100%" />
+</a>
+
+
 <br />
 以下、プロジェクト作成時に自動生成された文章
 <br />
-
 
 
 ## Getting Started with Create React App
